@@ -876,6 +876,7 @@ class user
         $queryBuilder->select('name, race, class, gender, level')
             ->from('characters')
             ->where('online = :online')
+            ->andWhere('account > 200')
             ->orderBy('level', 'DESC')
             ->setMaxResults(49)
             ->setParameter('online', 1);
