@@ -124,6 +124,7 @@ class status
         $queryBuilder = database::$chars[$realmID]->createQueryBuilder();
         $queryBuilder->select("name, race, class, gender, level, totaltime")
             ->from("characters")
+            ->where('account > 200')
             ->orderBy("totaltime", "DESC")
             ->setMaxResults(10);
 
@@ -141,6 +142,7 @@ class status
         $queryBuilder = database::$chars[$realmID]->createQueryBuilder();
         $queryBuilder->select("name, race, level, totaltime, money")
             ->from("characters")
+            ->where('account > 200')
             ->orderBy("money", "DESC")
             ->setMaxResults(10);
 
